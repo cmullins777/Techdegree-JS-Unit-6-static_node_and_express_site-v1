@@ -1,0 +1,7 @@
+{ "projects": [
+  {id: 0, project_name: "random_quote_generator", description: "button generates a random quote on design", technologies: "javascript, html, css", livelink: "tbd", github_link: "tbd", image_urls: "tbd"},
+  {id: 1, project_name: "list_pagination_and_filtering", description: "displays 10 students at a time with page links", technologies: "javascript, html, css", livelink: "tbd", github_link: "tbd", image_urls: "tbd"},
+  {id: 2, project_name: "interactive_form", description: "registration form for a conference", technologies: "javascript, html, css", livelink: "tbd", github_link: "tbd", image_urls: "tbd"},
+  {id: 3, project_name: "object_oriented_game_show", description: "hangman-like guessing game", technologies: "javascript, html, css", livelink: "tbd", github_link: "tbd", image_urls: "tbd"},
+  {id: 4, project_name: "public_api_request", description: "pulls 12 employees from an online directory", technologies: "public api datasource, javascript, html, css", livelink: "tbd", github_link: "tbd", image_urls: "tbd"}
+  ];
