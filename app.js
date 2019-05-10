@@ -1,16 +1,11 @@
 const express = require('express');
-const json = require('data.json');
-
+const data = require('./data.json');
+const projects = data.projects;
 const app = express();
 
 app.use('/static', express.static('public'));
 app.set('view engine', 'pug');
 
-app.use((req, res, next) => {
-  const err = new Error('You have an error');
-  err.status = 500;
-  next(err);
-});
 //Configure index route to render "Home" page
 app.get('/', (req, res) => {
   res.render('index');
