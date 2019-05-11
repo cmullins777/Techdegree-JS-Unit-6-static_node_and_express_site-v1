@@ -1,26 +1,34 @@
 const express = require('express');
+const app = express();
 const data = require('./data.json');
 const projects = data.projects;
-const app = express();
 
-app.use('/static', express.static('public'));
 app.set('view engine', 'pug');
+app.use('/static', express.static('public'));
+
+
 
 //Configure index route to render "Home" page
 app.get('/', (req, res) => {
-  res.render('index');
+  res.render('index', {projects});
 });
 //Configure about route to render "About" page
 app.get('/about', (req, res) => {
   res.render('about');
 });
+
 //Configure projects route to render "Projects" page
-app.get('/project', (req, res) => {
-  res.render('project');
+app.get('/projects/:id', (req, res) => {
+  const {id} = req.params;
+  const project = projects[id];
+  if (isNaN(id) || id > projects.length) {
+    return res.redirect('/');
+  }
+  res.render('project', {project});
 });
 
 app.use((req, res, next) => {
-  const err = newError('Not Found');
+  const err = new Error('Not Found');
   err.status = 404;
   next(err);
 });
@@ -28,7 +36,7 @@ app.use((req, res, next) => {
 app.use((err, req, res, next) => {
   res.locals.error = err;
   res.status(err.status);
-  res.render('error', err);
+  res.render('error');
 });
 
 app.listen(3000, () => {
